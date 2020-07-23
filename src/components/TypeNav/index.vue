@@ -135,7 +135,11 @@ export default {
         if(params){
             location.params = params
         }
-        this.$router.push(location);
+        if(this.$route.path !== '/home'){
+          this.$router.replace(location)
+        }else{
+          this.$router.push(location)
+        }
       }
     },
   },

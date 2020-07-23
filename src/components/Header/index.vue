@@ -84,7 +84,12 @@ export default {
       if(query){
         location.query = query
       }
-      this.$router.push(location)
+      this.keyword = ''
+      if(this.$route.path !== '/home'){
+        this.$router.replace(location)
+      }else{
+        this.$router.push(location)
+      }
     }
   }
 };
