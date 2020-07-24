@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import home from './home'
-import search from'./search'
+import search from './search'
+import detail from '@/store/detail'
 Vue.use(Vuex)
 const state = {}
 const mutations = {}
@@ -14,6 +15,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     home,
-    search
+    search,
+    detail
   }
 })

@@ -4,10 +4,14 @@ import Home from '@/pages/Home'
 import Register from '@/pages/Register'
 import Login from '@/pages/Login'
 import Search from '@/pages/Search'
-
+import Detail from '@/pages/Detail'
 Vue.use(VueRouter)
 export default new VueRouter({
   routes: [
+    {
+      path: '/detail/:goodsId',
+      component:Detail
+    },
     {
       path: '/home',
       component:Home
@@ -36,7 +40,14 @@ export default new VueRouter({
       path: '/',
       redirect:'/home'  //重定向
     }
-  ]
+  ],
+  // 解决页面跳转后到底部的bug
+  scrollBehavior(to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
 
 //解决多次点击编程式导航报错问题
